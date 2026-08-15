@@ -182,10 +182,13 @@ export class TaskService {
 
     const project = task.project as any;
 
+    const assignedToObj = task.assignedTo as any;
+    const createdByObj = task.createdBy as any;
+
     const canAccess =
       currentUser.role === UserRole.ADMIN ||
-      toIdString(task.assignedTo?._id || task.assignedTo) === toIdString(currentUser._id) ||
-      toIdString(task.createdBy?._id || task.createdBy) === toIdString(currentUser._id) ||
+      toIdString(assignedToObj?._id || task.assignedTo) === toIdString(currentUser._id) ||
+      toIdString(createdByObj?._id || task.createdBy) === toIdString(currentUser._id) ||
       (project && canAccessResource(currentUser, { ownerId: project.owner, memberIds: project.members }));
 
     if (!canAccess) {

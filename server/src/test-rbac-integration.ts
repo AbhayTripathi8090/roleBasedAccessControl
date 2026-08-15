@@ -39,7 +39,7 @@ async function runRbacTests() {
   } catch (e) {}
 
   // Setup test users in database
-  let adminUser, managerUser, normalUser;
+  let adminUser: any, managerUser: any, normalUser: any;
 
   try {
     await UserModel.deleteMany({ email: { $in: ['admin@test.com', 'manager@test.com', 'user@test.com'] } });

@@ -6,11 +6,11 @@ async function runResourceAuthTests() {
   console.log('🧪 Starting Resource-Level Authorization Unit & Integration Test Suite...\n');
 
   // Mock User Entities
-  const adminUser = { _id: '660000000000000000000001', role: UserRole.ADMIN } as IUserDocument;
-  const managerUser1 = { _id: '660000000000000000000002', role: UserRole.MANAGER } as IUserDocument;
-  const managerUser2 = { _id: '660000000000000000000003', role: UserRole.MANAGER } as IUserDocument;
-  const normalUser1 = { _id: '660000000000000000000004', role: UserRole.USER } as IUserDocument;
-  const normalUser2 = { _id: '660000000000000000000005', role: UserRole.USER } as IUserDocument;
+  const adminUser = { _id: '660000000000000000000001', role: UserRole.ADMIN } as unknown as IUserDocument;
+  const managerUser1 = { _id: '660000000000000000000002', role: UserRole.MANAGER } as unknown as IUserDocument;
+  const managerUser2 = { _id: '660000000000000000000003', role: UserRole.MANAGER } as unknown as IUserDocument;
+  const normalUser1 = { _id: '660000000000000000000004', role: UserRole.USER } as unknown as IUserDocument;
+  const normalUser2 = { _id: '660000000000000000000005', role: UserRole.USER } as unknown as IUserDocument;
 
   // Mock Resources
   const projectOwnedByManager1 = {
