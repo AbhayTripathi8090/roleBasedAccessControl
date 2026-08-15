@@ -202,7 +202,7 @@ export default function LoginPage() {
           {/* Quick Demo Credentials Assistant */}
           <div className="pt-4 border-t border-slate-800/80 space-y-3">
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 text-center">
-              Quick Fill Demo Role Credentials
+              Fill Demo Role Credentials
             </p>
             <div className="grid grid-cols-3 gap-2">
               <button
