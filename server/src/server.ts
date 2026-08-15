@@ -5,7 +5,7 @@ import { connectDB, disconnectDB } from './config/database';
 const startServer = async () => {
   try {
     // Attempt database connection with graceful error handling
-    await connectDB().catch((err) => {
+    await connectDB().catch((err: Error) => {
       console.warn('⚠️ [WorkFlow Server] Starting server without active MongoDB connection (Development fallback).');
     });
 
@@ -28,17 +28,17 @@ const startServer = async () => {
 
     process.on('SIGINT', () => gracefulShutdown('SIGINT'));
     process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('❌ Failed to launch WorkFlow server:', error);
     process.exit(1);
   }
 };
 
-process.on('uncaughtException', (err) => {
+process.on('uncaughtException', (err: Error) => {
   console.error('💥 Uncaught Exception:', err);
 });
 
-process.on('unhandledRejection', (reason) => {
+process.on('unhandledRejection', (reason: unknown) => {
   console.error('💥 Unhandled Rejection:', reason);
 });
 
