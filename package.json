@@ -4,10 +4,10 @@
   "private": true,
   "description": "WorkFlow - Production-style MERN Role-Based Access Control (RBAC) Monorepo",
   "scripts": {
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev": "node api.js && concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "npm --prefix client run dev",
     "dev:server": "npm --prefix server run dev",
-    "build": "npm run build:server && npm run build:client",
+    "build": "node api.js && npm run build:server && npm run build:client",
     "build:client": "npm --prefix client run build",
     "build:server": "npm --prefix server run build",
     "lint": "npm --prefix client run lint && npm --prefix server run lint",
